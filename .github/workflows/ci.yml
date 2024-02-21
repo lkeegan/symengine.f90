@@ -7,6 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        build: ["Debug", "Release"]
         include:
           - {os: ubuntu-latest, compiler: gcc, version: 13, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
           - {os: ubuntu-latest, compiler: gcc, version: 12, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
@@ -35,11 +36,13 @@ jobs:
           repository: symengine/symengine
           path: symengine-cpp
       - name: Build symengine
+        env:
+          CMAKE_BUILD_TYPE: ${{ matrix.build }}
         run: |
           cd symengine-cpp
           mkdir build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=Debug
+          cmake ..
           make -j4
           sudo make install
       - name: Build and test symengine.f90
