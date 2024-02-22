@@ -344,11 +344,15 @@ end function
 
 function basic_new() result(new)
     type(Basic) :: new
+    print *, "basic_new", new%ptr
     new%ptr = c_basic_new_heap()
+    print *, "basic_new", new%ptr
+    new%tmp = .true.
 end function
 
 subroutine basic_free(this)
     type(Basic) :: this
+    print *, "Free", this%tmp, this%ptr
     call c_basic_free_heap(this%ptr)
 end subroutine
 
@@ -635,9 +639,11 @@ function basic_mul(a, b) result(res)
     type(basic) :: res
     integer(c_long) :: exception
     res = Basic()
+    print *, "mul", res%tmp, res%ptr
     exception = c_basic_mul(res%ptr, a%ptr, b%ptr)
     call handle_exception(exception)
     res%tmp = .true.
+    print *, "mul", res%tmp, res%ptr
 end function
 
 function basic_mul_i_left(this, b) result(res)
