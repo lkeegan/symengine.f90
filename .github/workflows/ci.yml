@@ -8,24 +8,24 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - {os: ubuntu-latest, compiler: gcc, version: 13, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
-          # - {os: ubuntu-latest, compiler: gcc, version: 13, build: Release}
-          # - {os: ubuntu-latest, compiler: gcc, version: 12, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: ubuntu-latest, compiler: gcc, version: 13, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: ubuntu-latest, compiler: gcc, version: 13, build: Release}
+          - {os: ubuntu-latest, compiler: gcc, version: 12, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
           - {os: ubuntu-latest, compiler: gcc, version: 12, build: Release}
-          # - {os: ubuntu-latest, compiler: gcc, version: 11,  build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: ubuntu-latest, compiler: gcc, version: 11,  build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
           - {os: ubuntu-latest, compiler: gcc, version: 11, build: Release}
-          # - {os: ubuntu-latest, compiler: intel, build: Debug, version: '2023.2'}
-          # - {os: ubuntu-latest, compiler: intel, build: Release, version: '2023.2'}
-          # - {os: ubuntu-latest, compiler: intel-classic, build: Debug, version: '2021.10'}
-          # - {os: ubuntu-latest, compiler: intel-classic, build: Release, version: '2021.10'}
-          # - {os: macos-latest, compiler: gcc, version: 13, build: Debug, '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
-          # - {os: macos-latest, compiler: gcc, version: 13, build: Release}
-          # - {os: macos-latest, compiler: gcc, version: 12, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: ubuntu-latest, compiler: intel, build: Debug, version: '2023.2'}
+          - {os: ubuntu-latest, compiler: intel, build: Release, version: '2023.2'}
+          - {os: ubuntu-latest, compiler: intel-classic, build: Debug, version: '2021.10'}
+          - {os: ubuntu-latest, compiler: intel-classic, build: Release, version: '2021.10'}
+          - {os: macos-latest, compiler: gcc, version: 13, build: Debug, '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: macos-latest, compiler: gcc, version: 13, build: Release}
+          - {os: macos-latest, compiler: gcc, version: 12, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
           - {os: macos-latest, compiler: gcc, version: 12, build: Release}
-          # - {os: macos-latest, compiler: gcc, version: 11, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
+          - {os: macos-latest, compiler: gcc, version: 11, build: Debug, flags: '-Wall -Wextra -fcheck=all -pedantic -fbacktrace -g'}
           - {os: macos-latest, compiler: gcc, version: 11, build: Release}
-          # - {os: macos-latest, compiler: intel-classic, build: Debug, version: '2021.10'}
-          # - {os: macos-latest, compiler: intel-classic, build: Release, version: '2021.10'}
+          - {os: macos-latest, compiler: intel-classic, build: Debug, version: '2021.10'}
+          - {os: macos-latest, compiler: intel-classic, build: Release, version: '2021.10'}
 
     steps:
       - uses: fortran-lang/setup-fortran@v1
